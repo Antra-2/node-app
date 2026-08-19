@@ -1,5 +1,7 @@
 const http = require('http');
 
+const PORT = 3000;
+
 const server = http.createServer((req, res) => {
 
     res.writeHead(200, {
@@ -10,7 +12,7 @@ const server = http.createServer((req, res) => {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>My First Node.js App</title>
+            <title>Jenkins Node.js Deployment</title>
 
             <style>
                 * {
@@ -24,54 +26,50 @@ const server = http.createServer((req, res) => {
                     justify-content: center;
                     align-items: center;
                     font-family: Arial, sans-serif;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    background: linear-gradient(135deg, #1f2937, #2563eb);
                 }
 
                 .card {
-                    width: 520px;
+                    width: 550px;
                     padding: 50px;
                     text-align: center;
                     background: white;
-                    border-radius: 20px;
-                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+                    border-radius: 18px;
+                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
                 }
 
                 .icon {
                     font-size: 55px;
-                    margin-bottom: 15px;
                 }
 
                 h1 {
-                    margin: 0 0 15px;
-                    font-size: 36px;
-                    color: #333;
+                    color: #1f2937;
+                    margin: 15px 0;
                 }
 
                 h1 span {
-                    color: #667eea;
+                    color: #2563eb;
                 }
 
                 p {
-                    color: #666;
-                    font-size: 18px;
+                    color: #555;
+                    font-size: 17px;
                     line-height: 1.6;
                 }
 
-                .status {
-                    display: inline-block;
-                    margin-top: 15px;
-                    padding: 12px 25px;
-                    border-radius: 25px;
-                    background: #667eea;
+                .deployment {
+                    margin-top: 25px;
+                    padding: 12px 20px;
+                    background: #16a34a;
                     color: white;
+                    border-radius: 25px;
                     font-weight: bold;
-                    box-shadow: 0 5px 12px rgba(102, 126, 234, 0.4);
                 }
 
                 .footer {
                     margin-top: 25px;
                     font-size: 14px;
-                    color: #999;
+                    color: #888;
                 }
             </style>
         </head>
@@ -83,24 +81,24 @@ const server = http.createServer((req, res) => {
                 <div class="icon">🚀</div>
 
                 <h1>
-                    My First App Using <span>Node.js</span>
+                    Node.js Application
+                </h1>
+
+                <h1>
+                    Deployed using <span>Jenkins</span>
                 </h1>
 
                 <p>
-                    Welcome to my first Node.js application!
+                    This application was automatically deployed
+                    using a Jenkins Pipeline.
                 </p>
 
-                <p>
-                    This application is running successfully
-                    on Ubuntu.
-                </p>
-
-                <div class="status">
-                    ✓ Node.js Application Running
+                <div class="deployment">
+                    ✓ Deployment Successful
                 </div>
 
                 <div class="footer">
-                    Powered by Node.js • Ubuntu
+                    GitHub → Jenkins → PM2 → Node.js
                 </div>
 
             </div>
@@ -110,6 +108,6 @@ const server = http.createServer((req, res) => {
     `);
 });
 
-server.listen(3000, () => {
-    console.log('My First Node.js App is running on port 3000');
+server.listen(PORT, () => {
+    console.log(`Node.js application running on port ${PORT}`);
 });
